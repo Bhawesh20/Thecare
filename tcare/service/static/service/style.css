@@ -1,0 +1,93 @@
+.body{
+	background-color: #def7d2;
+}
+.pres-panel{
+	height: 180px;
+	font-size: 20px;
+	background-color: #ffffff;
+}
+.prescription_size{
+	vertical-align: center;
+}
+.fixed_width{
+	width: 150px;
+	height: 150px;
+}
+.userd{
+	margin-top: 80px;
+}
+.userinfod{
+	margin-top: 5px;
+}
+.userimg{
+	width: 300px;
+	height: 300px;
+	border-radius: 40px;
+}
+.userbase{
+	font-size: 18px;
+	text-align: center;
+}
+.home-display{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin:15px;
+	padding: 15px;
+	padding-top: 65px;
+	height: 200px;
+	width: 100%;
+	background-color: #FFFFFF;
+	color: #000000;
+	text-align: center;
+	border-radius: 10%;
+}
+.flip-container {
+	perspective: 1000px;
+	margin-top: 30px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 100%;
+	height: 200px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 1.0s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	text-align: center;
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	text-align: center;
+	transform: rotateY(180deg);
+}
+.front .home-display{
+	background-color: #33ed1e;
+}
+.back .home-display{
+	background-color: #e2263f;
+}

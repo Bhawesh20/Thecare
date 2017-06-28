@@ -1,0 +1,53 @@
+{% extends 'service/base.html' %}
+{% block title %} Register New Test {% endblock %}
+{% block test_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-sm-12 col-md-12">
+	        <div class="panel panel-default">
+	            <div class="panel-body">
+	                <h3 style="text-align: center;">Register New Test</h3><br>
+	                {% if error_message %}
+	                    <p><strong>{{ error_message }}</strong></p>
+	                {% endif %}
+	                <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+	                    {% csrf_token %}
+	                    <table class="table table-bordered">
+	                    	<thead>
+								<tr>
+									<th><label for="patientname" class="control-label">Patient Name </label></th>
+									<th><label class="control-label">Phone Number</label></th>
+									</tr>
+								<tr>
+									<td>{{ form.patient_name }}</td>
+									<td> {{form.contact_number}}</td>
+								</tr>
+								<tr>
+									<th><label class="control-label">Test: </label></th>
+									<th><label class="control-label">Appointment Date</label></th>
+								</tr>
+								<tr>
+									<td>{{ form.test_type }}</td>
+									<td> {{form.test_date}}</td>
+								</tr>
+								
+	                    		<tr>
+						        	<th><label class="control-label" style="margin-bottom: 40%;">Address </label></th>
+						        	<td style="height: 100px;"> {{form.address}}</td>
+						     	 </tr>
+	                    	</thead>
+	                    </table>
+	                    <div class="form-group">
+	                        <div class="col-sm-offset-5 col-sm-7">
+	                            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+	                        </div>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+{% endblock %}

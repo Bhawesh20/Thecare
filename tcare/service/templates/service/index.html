@@ -1,0 +1,108 @@
+{% extends 'service/base.html' %}
+{% block title %} TenderCare-Home {% endblock %}
+{% block home_active %}active{% endblock %}
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-4">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<div class="home-display">
+								<h3>Nurse / BabySitter</h3>
+							</div>
+						</div>
+						<div class="back">
+							<div class="home-display">
+								<a href="{% url 'service:appointment' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> View </button></a>&nbsp;&nbsp;
+								<a href="{% url 'service:add_appointment' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> Add </button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-4">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<div class="home-display">
+								<h3>Physiotherapist</h3>
+							</div>
+						</div>
+						<div class="back">
+							<div class="home-display">
+								<a href="{% url 'service:physiotherapist' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> View </button></a>&nbsp;&nbsp;
+								<a href="{% url 'service:add_physiotherapist' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> Add </button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><br><br>
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-4">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<div class="home-display">
+								<h3>Medicine</h3>
+							</div>
+						</div>
+						<div class="back">
+							<div class="home-display">
+								<a href="{% url 'service:prescription' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> View </button></a>&nbsp;&nbsp;
+								<a href="{% url 'service:add_prescription' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> Add </button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1">
+			</div>		
+			<div class="col-md-4">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<div class="home-display">
+								<h3>Lab Test</h3>
+							</div>
+						</div>
+						<div class="back">
+							<div class="home-display">
+								<a href="{% url 'service:lab_test' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> View </button></a>&nbsp;&nbsp;
+								<a href="{% url 'service:add_test' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> Add </button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<div class="col-md-4">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<div class="home-display">
+								<h3>Packages</h3>
+							</div>
+						</div>
+						<div class="back">
+							<div class="home-display">
+								<a href="{% url 'service:package' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> View </button></a>&nbsp;&nbsp;
+								<a href="{% url 'service:add_package' %}"><button class="btn btn-lg"><span aria-hidden="true"></span> Add </button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<div class="col-md-2">
+				
+			</div>
+		</div>
+		<br>
+	</div>
+{% endblock %}

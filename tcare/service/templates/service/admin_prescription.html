@@ -1,0 +1,41 @@
+{% extends 'service/base.html' %}
+{% block title %}Admin Prescription{% endblock %}
+{% block prescriptions_active %}active{% endblock %}
+
+{% block body %}
+
+			{% if all_prescriptions %}
+				{% for prescriptions in all_prescriptions %}
+					<div class="panel panel-default pres-panel">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-1 prescription_size"><br><br>
+									<p>{{ forloop.counter }}.</p>
+								</div>
+								<div class="col-sm-3">
+									<a href="{{ prescriptions.prescription_image.url }}" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">
+										<img src="{{ prescriptions.prescription_image.url }}" class="img-responsive fixed_width">
+									</a>
+								</div>
+								<div class="col-sm-6 prescription_size">
+									<div class="caption"><br>
+										<p> Patient: {{prescriptions.patient_name}}</p>
+										<p> Prescribed By: {{prescriptions.prescribed_by}}</p>
+										<p> Prescription Date: {{prescriptions.prescription_date}}</p>
+									</div>
+								</div>
+								<div class="col-sm-2" style="text-align: center;">
+									<a href="#" >
+										<button class="btn btn-info" style="margin-top: 30px;">Buy Prescription</button>
+									</a>
+									<a href="#" >
+										<button class="btn btn-danger" style="margin-top: 20px;">Delete</button>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+
+			{% endif %}
+{% endblock %}

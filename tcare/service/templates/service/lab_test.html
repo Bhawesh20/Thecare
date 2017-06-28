@@ -1,0 +1,39 @@
+{% extends 'service/base.html' %}
+{% block title %}Lab Test{% endblock %}
+{% block test_active %}active{% endblock %}
+{% block body %}
+	<ul class="nav nav-pills" style="margin-bottom: 10px;">
+		<li role="presentation"><a href="{% url 'service:add_test' %}"><button class="btn btn-info">New Test</button></a></li>
+	</ul>
+		<div class="panel panel-default">
+			<div class="panel-body" >
+				<table class="table">
+					<thead>
+						<tr>
+							<th> <center> Sr. Number </center></th>
+							<th> <center> Patient Name </center> </th>
+							<th> <center> Contact Number </center> </th>
+							<th> <center> Test Required </center> </th>
+							<th> <center> Sample Collection Date </center> </th>
+							<th> <center> Status </center> </th>
+							<th> <center> Action </center></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for test in all_test %}
+							<tr>
+								<td> <center> {{ forloop.counter }}. </center></td>
+								<td> <center> {{ test.patient_name }} </center> </td>
+								<td> <center> {{ test.contact_number }} </center> </td>
+								<td> <center> {{ test.test_type }} </center> </td>
+								<td> <center> {{ test.test_date }} </center> </td>
+								<td> <center> {{ test.status }} </center> </td>
+								<td> <center> <a href="{% url 'service:view_lab_test' test.pk %}">View</a> / <a href="{% url 'service:del_lab_test' test.pk %}">Delete</a></center></td>
+							</tr>
+							
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>			
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'service/base.html' %}
+{% block title %}Prescription{% endblock %}
+{% block prescriptions_active %}active{% endblock %}
+
+{% block body %}
+	<ul class="nav nav-pills" style="margin-bottom: 10px;">
+		<li role="presentation"><a href="{% url 'service:add_prescription' %}"><button class="btn btn-info">Add New Prescription</button></a>  </li>
+	</ul>
+			{% if all_prescriptions %}
+				{% for prescriptions in all_prescriptions %}
+					<div class="panel panel-default pres-panel">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-1 prescription_size"><br><br>
+									<p>{{ forloop.counter }}.</p>
+								</div>
+								<div class="col-sm-3">
+									<a href="{{ prescriptions.prescription_image.url }}" target="blank">
+										<img src="{{ prescriptions.prescription_image.url }}" class="img-responsive fixed_width">
+									</a>
+								</div>
+								<div class="col-sm-6 prescription_size">
+									<div class="caption"><br>
+										<p> Patient: {{prescriptions.patient_name}}</p>
+										<p> Prescribed By: {{prescriptions.prescribed_by}}</p>
+										<p> Prescription Date: {{prescriptions.prescription_date}}</p>
+									</div>
+								</div>
+								<div class="col-sm-2" style="text-align: center;">
+								{% if prescriptions.buy %}
+									<button class="btn btn-info disabled" style="margin-top: 30px;">Buy Medicine</button>
+									<button class="btn btn-danger disabled" style="margin-top: 20px;">Delete</button>
+								{% else %}
+									<a href="{% url 'service:buy_medicine' prescriptions.id %}" >
+										<button class="btn btn-info" style="margin-top: 30px;">Buy Medicine</button>
+									</a>
+									<a href="{% url 'service:del_prescription' prescriptions.pk %}" >
+										<button class="btn btn-danger" style="margin-top: 20px;">Delete</button>
+									</a>
+								{% endif %}
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+
+			{% endif %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'service/base_visitor.html' %}
+{% block title %}Register{% endblock %}
+{% block register_active %}active{% endblock %}
+{% block body %}
+<br><br><br><br><br>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-3"></div>
+        
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <center><h3>Register for an Account</h3><br>
+                        {% if error_message %}
+                            <p><strong>{{ error_message }}</strong></p>
+                        {% endif %}
+                        <center>
+                            <div>
+                                {% load socialaccount %}
+                                <a href="{% provider_login_url "facebook" method="oauth2" %}" style="color: #ffffff">
+                                    <button type="button" class="btn btn-primary">
+                                        Signup with Facebook
+                                    </button>
+                                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                <a href="{% provider_login_url "google" method="oauth2" %}" style="color: #ffffff">
+                                    <button type="button" class="btn btn-danger">
+                                        Signup with Google 
+                                    </button>
+                                </a>
+                            </div><h3> OR</h3>
+                        </center>
+                        <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% include 'service/form_template.html' %}
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="panel-footer">
+                            Already have an account? <a href="{% url 'service:login_user' %}">Click here</a> to Login.
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

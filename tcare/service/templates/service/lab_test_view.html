@@ -1,0 +1,47 @@
+{% extends 'service/base.html' %}
+{% block title %}Lab Test{% endblock %}
+{% block test_active %}active{% endblock %}
+
+{% block body %}
+	{% if labtest1 %}
+		{% for test in labtest1 %}
+			<div class="col-sm-12 col-md-12" style="margin-top: 20px;">
+				<table class="table table-hover" border="0">
+					<tr>
+						<th> Test ID:</th>
+						<td>{{test.pk}}</td>
+					</tr>
+					<tr>
+						<th>Patient Name:</th>
+						<td>{{test.patient_name}}</td>
+					</tr>
+					<tr>
+						<th>Phone Number:</th>
+						<td>{{test.contact_number}}</td>
+					</tr>
+					<tr>	
+						<th>Test/Vaccination Name:</th>
+						<td>{{test.test_type}}</td>
+					</tr>
+					<tr>	
+						<th>test Date:</th>
+						<td>{{test.test_date}}</td>
+					</tr>
+					<tr>	
+						<th>Status:</th>
+						<td>{{test.status}}</td>
+					</tr>
+					<tr>	
+						<th>Address:</th>
+						<td>{{test.address}}</td>
+					</tr>
+				</table>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h3> No Data Found</h3><br>
+	{% endif %}
+	<div class="col-sm-12 col-md-12" style="margin-top: 10px;">
+		<a href="{% url 'service:lab_test' %}"><button class="btn btn-info">Back</button></a>
+	</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'service/base.html' %}
+{% block title %} Add New Prescription {% endblock %}
+{% block prescriptions_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-sm-12 col-md-12">
+	        <div class="panel panel-default">
+	            <div class="panel-body">
+	                <h3 style="text-align: center;">Add New Appointment</h3><br>
+	                {% if error_message %}
+	                    <p><strong>{{ error_message }}</strong></p>
+	                {% endif %}
+	                <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+	                    {% csrf_token %}
+	                    <table class="table table-bordered">
+	                    	<thead>
+								<tr>
+									<th><label for="patientname" class="control-label">Patient Name </label></th>
+									<th><label class="control-label">prescribed_by</label></th>
+								</tr>
+								<tr>
+									<td>{{ form.patient_name }}</td>
+									<td> <b>Dr.</b> {{form.prescribed_by}}</td>
+								</tr>
+								<tr>
+									<th><label class="control-label">Prescription Date </label></th>
+									<td>{{form.prescription_date}}</td>
+								</tr>
+								<tr>
+									<th><label class="control-label">Prescription Image </label></th>
+									<td>{{form.prescription_image}}</td>
+								</tr>
+	                    		<tr>
+						        	<th><label class="control-label" style="margin-bottom: 40%;">Address </label></th>
+						        	<td style="height: 100px;"> {{form.address}}</td>
+						     	 </tr>
+	                    	</thead>
+	                    </table>
+	                    <div class="form-group">
+	                        <div class="col-sm-offset-5 col-sm-7">
+	                            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+	                        </div>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+{% endblock %}

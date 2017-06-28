@@ -1,0 +1,51 @@
+{% extends 'service/base.html' %}
+{% block title %}Physiotherapist Appointment Detail{% endblock %}
+{% block physio_active %}active{% endblock %}
+
+{% block body %}
+	{% if physiotherapist1 %}
+		{% for appointment in physiotherapist1 %}
+			<div class="col-sm-12 col-md-12" style="margin-top: 20px;">
+				<table class="table table-hover" border="0">
+					<tr>
+						<th> Appointment ID:</th>
+						<td>{{appointment.pk}}</td>
+					</tr>
+					<tr>
+						<th>Patient Name:</th>
+						<td>{{appointment.patient_name}}</td>
+					</tr>
+					<tr>
+						<th>Phone Number:</th>
+						<td>{{appointment.phone_number}}</td>
+					</tr>
+					<tr>	
+						<th>Served By:</th>
+						<td>{{appointment.served_by}}</td>
+					</tr>
+					<tr>	
+						<th>Appointment Date:</th>
+						<td>{{appointment.appointment_date}}</td>
+					</tr>
+					<tr>	
+						<th>Period:</th>
+						<td>{{appointment.period}} Days </td>
+					</tr>
+					<tr>	
+						<th>Status:</th>
+						<td>{{appointment.status}}</td>
+					</tr>
+					<tr>	
+						<th>Address:</th>
+						<td>{{appointment.address}}</td>
+					</tr>
+				</table>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h3> No Data Found</h3><br>
+	{% endif %}
+	<div class="col-sm-12 col-md-12" style="margin-top: 10px;">
+		<a href="{% url 'service:physiotherapist' %}"><button class="btn btn-info">Back</button></a>
+	</div>
+{% endblock %}

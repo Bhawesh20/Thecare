@@ -1,0 +1,44 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Tender Care{% endblock %}</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css?v=1" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Satisfy?v=1" />
+        <link rel="stylesheet" type="text/css" href="{% static 'service/style.css' %}?v=1" />
+        <link rel="stylesheet" type="text/css" href="{% static 'service/base_style.css'%}?v=1"/>
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+
+            <!-- Header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'service:index' %}">Tender Care</a>
+            </div>
+            <!-- Items -->
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="page-scroll"><a href="{% url 'service:index' %}#services">Services</a></li>
+                    <li class="#"><a href="#">Lorem ipsum</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="{% block register_active %}{% endblock %}"><a href="{% url 'service:register' %}">Register</a></li>
+                    <li class="{% block login_active %}{% endblock %}"><a href="{% url 'service:login_user' %}">Log In</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

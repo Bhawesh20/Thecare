@@ -1,0 +1,11 @@
+{% extends 'service/base.html' %}
+{% block title %}Prescription{% endblock %}
+{% block prescriptions_active %}active{% endblock %}
+
+{% block body %}
+<h3> Thank you for buying medicine. Once prescription is verified payment link will be sent to your registered email ID.</h3>
+<h5>For more info email us at info@tendercareplus.com</h5>
+<a href="{% url 'service:prescription' %}" >
+	<button class="btn btn-info" style="margin-top: 30px;">Back</button>
+</a>
+{% endblock %}
